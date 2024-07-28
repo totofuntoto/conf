@@ -14,6 +14,7 @@ git config --global user.name "xxx" && git config --global user.email "hjklsad@s
 read -p "输入仓库目录 :" REPDIR
 
 # 克隆远程仓库
+cd /root
 git -c core.sshCommand="ssh -o StrictHostKeyChecking=no" clone git@github.com:totofuntoto/${REPDIR}.git
 
 # 拷贝对应配置到对应目录
