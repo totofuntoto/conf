@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 # 执行失败则退出
 set -e
@@ -11,7 +11,7 @@ apt -y update && apt -y install nginx git && bash <(curl -Ls https://raw.githubu
 git config --global user.name "xxx" && git config --global user.email "hjklsad@sldjfal.com"
 
 # 设置仓库目录
-read -p "输入仓库目录: " REPDIR
+read -p "输入仓库目录 :" REPDIR
 
 # 克隆远程仓库
 git clone git@github.com:totofuntoto/${REPDIR}.git
