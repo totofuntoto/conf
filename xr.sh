@@ -11,10 +11,10 @@ apt -y update && apt -y install nginx git && bash <(curl -Ls https://raw.githubu
 git config --global user.name "xxx" && git config --global user.email "hjklsad@sldjfal.com"
 
 # 设置仓库目录
-read -p "输入仓库目录" REPDIR
+read -p "输入仓库目录: " REPDIR
 
 # 克隆远程仓库
-git clone git@github:totofuntoto/git clone git@github.com:totofuntoto/${REPDIR}.git
+git clone git@github.com:totofuntoto/${REPDIR}.git
 
 # 拷贝对应配置到对应目录
 cd / && tar -xzvf /root/${REPDIR}/acme.tar.gz && cd /root/${REPDIR} && cp -r XrayR/ /etc && cp -r ssl/ /etc && cp nginx.conf /etc/nginx/ && cp default /etc/nginx/sites-available/
