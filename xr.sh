@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # 执行失败则退出
 set -e
 trap 'echo "执行失败:$BASH_COMMAND"' ERR
@@ -6,7 +8,7 @@ trap 'echo "执行失败:$BASH_COMMAND"' ERR
 apt -y update && apt -y install nginx git && bash <(curl -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh)
 
 # 配置git global参数
-git -c core.sshCommand="ssh -o StrictHostKeyChecking=no"#!/bin/bash
+git -c core.sshCommand="ssh -o StrictHostKeyChecking=no"
 git config --global user.name "xxx" && git config --global user.email "hjklsad@sldjfal.com"
 
 # 设置仓库目录
