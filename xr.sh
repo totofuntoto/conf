@@ -21,4 +21,4 @@ git -c core.sshCommand="ssh -o StrictHostKeyChecking=no" clone git@github.com:to
 cd / && tar -xzvf /root/${REPDIR}/acme.tar.gz && cd /root/${REPDIR} && cp -r XrayR/ /etc && cp -r ssl/ /etc/nginx/ && cp nginx.conf /etc/nginx/ && cp default /etc/nginx/sites-available/
 
 # 添加cron任务，在acme成功renew后推送到远程仓库
-(crontab -l ; echo "0 4 * * * '/root/.acme.sh'/acme.sh --cron --home '/root/.acme.sh' --renew-hook 'cd /root/${REPDIR} &&git pull && tar -czvf acme.tar.gz /root/.acme.sh && cp -r /etc/XrayR . && cp -r /etc/nginx/ssl .&& cp /etc/nginx/nginx.conf . && cp /etc/nginx/sites-available/default . && git add . && git commit -m \"acme renewed\" && git push origin master && nginx -s reload' > /dev/null " ) | crontab -
+(crontab -l 2>/dev/null ; echo "0 4 * * * '/root/.acme.sh'/acme.sh --cron --home '/root/.acme.sh' --renew-hook 'cd /root/${REPDIR} &&git pull && tar -czvf acme.tar.gz /root/.acme.sh && cp -r /etc/XrayR . && cp -r /etc/nginx/ssl .&& cp /etc/nginx/nginx.conf . && cp /etc/nginx/sites-available/default . && git add . && git commit -m \"acme renewed\" && git push origin master && nginx -s reload' > /dev/null " ) | crontab -
